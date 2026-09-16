@@ -217,7 +217,7 @@ export function LoginPage(): JSX.Element {
             <p className="mb-2 font-semibold text-ink">Demo credentials</p>
 
             <div className="flex items-baseline justify-between gap-3">
-              <dt className="text-muted">Owner</dt>
+              <dt className="text-muted">Owner · Hira</dt>
               <dd className="text-right font-mono text-[11px] text-ink">
                 {DEMO_ACCOUNTS.admin.email} / {DEMO_ACCOUNTS.admin.password}
               </dd>
@@ -231,7 +231,8 @@ export function LoginPage(): JSX.Element {
             </div>
 
             <p className="pt-1 text-[11px] leading-snug text-subtle">
-              The other branches sign in with <span className="font-mono">dha@</span> or{' '}
+              Shumaila signs in with <span className="font-mono">shumaila@aurabyhs.pk</span> /
+              admin123. The other branches sign in with <span className="font-mono">dha@</span> or{' '}
               <span className="font-mono">clifton@aurabyhs.pk</span>, same password.
             </p>
           </dl>
