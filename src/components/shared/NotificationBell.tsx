@@ -79,12 +79,15 @@ export function NotificationBell(): JSX.Element {
           onClick={toggle}
           aria-expanded={isOpen}
           aria-label={unread > 0 ? `Notifications, ${unread} unread` : 'Notifications'}
-          className="relative grid h-9 w-9 place-items-center rounded-xl text-muted transition-colors hover:bg-line/60 hover:text-ink"
+          className={cn(
+            'relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-muted transition-colors hover:bg-line/60 hover:text-ink',
+            isOpen && 'bg-line/60 text-ink',
+          )}
         >
           <Bell className="h-[18px] w-[18px]" aria-hidden />
           {unread > 0 && (
             <span
-              className="absolute -right-0.5 -top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-danger px-1 text-[10px] font-semibold text-danger-ink tabular-nums"
+              className="absolute -right-1 -top-1 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-badge px-1 text-[10px] font-bold leading-none text-badge-ink tabular-nums shadow-sm ring-2 ring-surface"
               aria-hidden
             >
               {unread > 99 ? '99+' : unread}
@@ -95,10 +98,14 @@ export function NotificationBell(): JSX.Element {
     >
       {(close) => (
         <div className="flex max-h-[min(30rem,80vh)] flex-col">
-          <div className="flex items-center justify-between gap-2 border-b border-line px-3 py-2.5">
-            <p className="text-sm font-semibold text-ink">
+          <div className="flex items-center justify-between gap-2 border-b border-line px-4 py-3">
+            <p className="flex items-center gap-2 font-display text-[15px] font-semibold text-ink">
               Notifications
-              {unread > 0 && <span className="ml-1.5 text-xs font-normal text-muted">{unread} new</span>}
+              {unread > 0 && (
+                <span className="rounded-full bg-brand-soft px-2 py-0.5 font-sans text-[11px] font-semibold text-brand tabular-nums">
+                  {unread} new
+                </span>
+              )}
             </p>
             {unread > 0 && (
               <Button
@@ -123,8 +130,11 @@ export function NotificationBell(): JSX.Element {
                       type="button"
                       onClick={() => open(notification, close)}
                       className={cn(
-                        'flex w-full gap-3 px-3 py-3 text-left transition-colors hover:bg-canvas',
-                        !notification.read && 'bg-brand-soft/40',
+                        // Unread is carried by a brand edge + faint wash rather
+                        // than a heavy fill, which went muddy on dark maroon.
+                        'relative flex w-full gap-3 px-4 py-3 text-left transition-colors hover:bg-line/40',
+                        !notification.read &&
+                          'bg-brand/[0.05] before:absolute before:inset-y-2 before:left-0 before:w-[3px] before:rounded-r-full before:bg-brand',
                       )}
                     >
                       <span
@@ -139,11 +149,16 @@ export function NotificationBell(): JSX.Element {
 
                       <span className="min-w-0 flex-1">
                         <span className="flex items-start gap-2">
-                          <span className="min-w-0 flex-1 text-[13px] font-medium leading-snug text-ink">
+                          <span
+                            className={cn(
+                              'min-w-0 flex-1 text-[13px] leading-snug text-ink',
+                              notification.read ? 'font-medium' : 'font-semibold',
+                            )}
+                          >
                             {notification.title}
                           </span>
                           {!notification.read && (
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
+                            <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand ring-2 ring-brand/20" aria-hidden />
                           )}
                         </span>
                         <span className="mt-0.5 block text-xs leading-snug text-muted line-clamp-2">
@@ -163,7 +178,7 @@ export function NotificationBell(): JSX.Element {
           <Link
             to={allHref}
             onClick={close}
-            className="border-t border-line px-3 py-2.5 text-center text-sm font-medium text-brand transition-colors hover:bg-brand-soft"
+            className="border-t border-line px-4 py-3 text-center text-sm font-semibold text-brand transition-colors hover:bg-brand-soft"
           >
             View all notifications
           </Link>

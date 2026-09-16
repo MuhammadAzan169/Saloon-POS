@@ -40,8 +40,7 @@ Shown on the login screen, with **Login as Admin** / **Login as Shop** buttons f
 
 | Role | Email | Password | Sees |
 | --- | --- | --- | --- |
-| Owner (admin) — Hira | `admin@aurabyhs.pk` | `admin123` | Everything, across all three branches |
-| Owner (admin) — Shumaila | `shumaila@aurabyhs.pk` | `admin123` | Everything, across all three branches |
+| Owners (admin) — Hira & Shumaila | `admin@aurabyhs.pk` | `admin123` | Everything, across all three branches |
 | Branch (shop) | `gulberg@aurabyhs.pk` | `shop123` | Aura Gulberg only |
 | Branch (shop) | `dha@aurabyhs.pk` | `shop123` | Aura DHA Phase 6 only |
 | Branch (shop) | `clifton@aurabyhs.pk` | `shop123` | Aura Clifton only |

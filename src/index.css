@@ -46,6 +46,9 @@
     --c-danger: 200 38 44;
     --c-danger-soft: 253 233 233;
     --c-danger-ink: 255 255 255;
+    /* Unread-count badge: a vivid red that stays red-with-white in both themes. */
+    --c-badge: 214 36 44;
+    --c-badge-ink: 255 255 255;
     --c-info: 42 92 140;
     --c-info-soft: 231 240 249;
 
@@ -91,6 +94,9 @@
     /* Dark danger is a light rose, so anything on it must be dark, not white. */
     --c-danger-soft: 62 24 26;
     --c-danger-ink: 48 10 12;
+    /* Unlike `danger`, the badge does not soften in dark mode: it must pop. */
+    --c-badge: 226 44 52;
+    --c-badge-ink: 255 255 255;
     --c-info: 126 170 220;
     --c-info-soft: 22 38 56;
 

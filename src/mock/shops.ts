@@ -74,7 +74,8 @@ export const users: User[] = [
   {
     ...base('usr_0001'),
     email: 'admin@aurabyhs.pk',
-    name: 'Hira',
+    // One demo owner account standing for both owners — the "HS" in Aura by HS.
+    name: 'Hira & Shumaila',
     role: 'admin',
     shopId: null,
     avatarUrl: null,
@@ -82,18 +83,7 @@ export const users: User[] = [
     active: true,
     lastLoginAt: null,
   },
-  {
-    // The "HS" in Aura by HS: two owners, each with full access.
-    ...base('usr_0005'),
-    email: 'shumaila@aurabyhs.pk',
-    name: 'Shumaila',
-    role: 'admin',
-    shopId: null,
-    avatarUrl: null,
-    phone: '0300 8412201',
-    active: true,
-    lastLoginAt: null,
-  },
+
   {
     ...base('usr_0002'),
     email: 'gulberg@aurabyhs.pk',
@@ -138,7 +128,6 @@ export const credentials: Credential[] = [
   { userId: 'usr_0002', email: 'gulberg@aurabyhs.pk', password: 'shop123' },
   { userId: 'usr_0003', email: 'dha@aurabyhs.pk', password: 'shop123' },
   { userId: 'usr_0004', email: 'clifton@aurabyhs.pk', password: 'shop123' },
-  { userId: 'usr_0005', email: 'shumaila@aurabyhs.pk', password: 'admin123' },
 ];
 
 export const DEMO_ACCOUNTS = {

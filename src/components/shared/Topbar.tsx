@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Logo } from './Logo';
 import { ShopSwitcher } from './ShopSwitcher';
 import { NotificationBell } from './NotificationBell';
+import { ThemeToggle } from './ThemeToggle';
 import { UserMenu } from './UserMenu';
 
 export function Topbar(): JSX.Element {
@@ -42,6 +43,7 @@ export function Topbar(): JSX.Element {
         New sale
       </Button>
 
+      <ThemeToggle />
       <NotificationBell />
       <UserMenu />
     </header>

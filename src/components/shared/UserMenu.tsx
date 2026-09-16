@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, LogOut, Moon, Settings, Store, Sun, UserCircle2 } from 'lucide-react';
+import { ChevronDown, LogOut, Settings, Store, UserCircle2 } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
-import { useUiStore } from '@/store/uiStore';
 import { useShopScope } from '@/hooks/useShopScope';
 import { Avatar } from '@/components/ui/Avatar';
 import { Dropdown, DropdownDivider, DropdownItem, DropdownLabel } from '@/components/ui/Dropdown';
@@ -9,8 +8,6 @@ import { Dropdown, DropdownDivider, DropdownItem, DropdownLabel } from '@/compon
 export function UserMenu(): JSX.Element | null {
   const user = useAuthStore((s) => s.user);
   const logout = useAuthStore((s) => s.logout);
-  const theme = useUiStore((s) => s.theme);
-  const toggleTheme = useUiStore((s) => s.toggleTheme);
   const { shop } = useShopScope();
   const navigate = useNavigate();
 
@@ -72,16 +69,6 @@ export function UserMenu(): JSX.Element | null {
           </div>
 
           <DropdownDivider />
-
-          <DropdownItem
-            icon={theme === 'light' ? <Moon /> : <Sun />}
-            onClick={() => {
-              toggleTheme();
-              close();
-            }}
-          >
-            {theme === 'light' ? 'Dark mode' : 'Light mode'}
-          </DropdownItem>
 
           <DropdownItem
             icon={<Settings />}

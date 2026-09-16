@@ -36,10 +36,17 @@ export function buildNotifications(
   const push = (row: Omit<AppNotification, 'id' | 'createdAt' | 'updatedAt'> & { at: Date }): void => {
     n += 1;
     const { at, ...rest } = row;
+    // Some sources are dated ahead of now (sales seeded for the rest of today,
+    // bookings stamped at a future slot). A notification cannot be raised
+    // before its event happens, so pull those into the recent past, spread out
+    // so they do not all read "just now" and still sort sensibly.
+    const nowMs = Date.now();
+    const raisedAt =
+      at.getTime() > nowMs ? new Date(nowMs - rng.int(2, 240) * 60_000) : at;
     rows.push({
       ...rest,
       id: `ntf_${String(n).padStart(4, '0')}`,
-      createdAt: at.toISOString(),
+      createdAt: raisedAt.toISOString(),
       updatedAt: NOW,
     });
   };

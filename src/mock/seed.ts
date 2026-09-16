@@ -52,7 +52,7 @@ export interface Database {
   schemaVersion: number;
 }
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 3;
 
 /**
  * Builds the full demo dataset. Everything is derived from `today` so the demo

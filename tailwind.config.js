@@ -33,6 +33,10 @@ export default {
           soft: 'rgb(var(--c-danger-soft) / <alpha-value>)',
           ink: 'rgb(var(--c-danger-ink) / <alpha-value>)',
         },
+        badge: {
+          DEFAULT: 'rgb(var(--c-badge) / <alpha-value>)',
+          ink: 'rgb(var(--c-badge-ink) / <alpha-value>)',
+        },
         info: { DEFAULT: 'rgb(var(--c-info) / <alpha-value>)', soft: 'rgb(var(--c-info-soft) / <alpha-value>)' },
       },
       fontFamily: {
