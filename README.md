@@ -1,4 +1,6 @@
-# Lumière Salon Suite
+# Aura by HS
+
+*Bridal make-up · Saloon services · Photography studio*
 
 A production-quality **front end** for a multi-branch salon business: bookings, point of sale,
 customers, staff rotas, stock and reporting, for one owner and three salon branches.
@@ -38,10 +40,11 @@ Shown on the login screen, with **Login as Admin** / **Login as Shop** buttons f
 
 | Role | Email | Password | Sees |
 | --- | --- | --- | --- |
-| Owner (admin) | `admin@lumieresalon.pk` | `admin123` | Everything, across all three branches |
-| Branch (shop) | `gulberg@lumieresalon.pk` | `shop123` | Lumière Gulberg only |
-| Branch (shop) | `dha@lumieresalon.pk` | `shop123` | Lumière DHA Phase 6 only |
-| Branch (shop) | `clifton@lumieresalon.pk` | `shop123` | Lumière Clifton only |
+| Owner (admin) — Hira | `admin@aurabyhs.pk` | `admin123` | Everything, across all three branches |
+| Owner (admin) — Shumaila | `shumaila@aurabyhs.pk` | `admin123` | Everything, across all three branches |
+| Branch (shop) | `gulberg@aurabyhs.pk` | `shop123` | Aura Gulberg only |
+| Branch (shop) | `dha@aurabyhs.pk` | `shop123` | Aura DHA Phase 6 only |
+| Branch (shop) | `clifton@aurabyhs.pk` | `shop123` | Aura Clifton only |
 
 A shop account that navigates to an admin URL is redirected to its own dashboard with an
 "Access denied" message. Shop accounts can never read another branch's data — the boundary is
@@ -131,15 +134,32 @@ Rules the codebase follows:
 
 ## Design
 
-- **Palette** — deep aubergine as the brand colour with an antique-gold accent, on warm,
-  slightly mauve-tinted neutrals. Defined as CSS custom properties in `src/index.css` and exposed
-  to Tailwind as semantic names (`brand`, `ink`, `muted`, `line`, `canvas`, `surface`), so nothing
-  hard-codes a hex value.
+- **Palette** — drawn from the *Aura by HS* logo: bridal maroon (`#7A181C`) as the brand colour
+  with an antique-gold accent, on white cards over a warm ivory canvas. Dark mode is the logo
+  itself — near-black maroon with the gold on top. Defined as CSS custom properties in
+  `src/index.css` and exposed to Tailwind as semantic names (`brand`, `accent`, `ink`, `muted`,
+  `line`, `canvas`, `surface`), so no component hard-codes a hex value — re-theming the whole app
+  means editing that one block.
+- **Contrast** — all 54 text/background token pairs clear WCAG AA (4.5:1) in both themes,
+  verified programmatically against the running app. Where a fill is light in one theme and dark
+  in the other — gold, and the rose used for `danger` in dark mode — the text on it comes from a
+  paired `*-ink` token rather than a hard-coded `text-white`, which is what keeps a destructive
+  button legible after the theme flips.
+- **Brand assets** — the supplied logo is used directly: `public/aura-mark.jpg` (the ring
+  monogram, cropped square for the sidebar, the topbar and the favicon) and `public/aura-brand.jpg`
+  (the full poster, blurred behind the login panel as texture). The poster bakes in its own
+  wordmark at a fixed position, so the login identity is redrawn from the mark plus live type —
+  that keeps it sharp and stops it colliding with the headline at any window size.
+- **Scrollbars and selection** follow the theme rather than the operating system: a brand-tinted
+  pill on a transparent track, in both WebKit and Firefox.
 - **Type** — Inter for the interface, Fraunces for headings and figures.
 - **Dark mode** is included and remembered; toggle it from the account menu.
 - **Responsive** — the admin portal is desktop-first, the shop portal works on a tablet or a phone.
   The sidebar collapses to a drawer, tables become cards, the billing cart becomes a bottom sheet,
   and the shop portal gets a bottom nav bar for the four things the front desk does all day.
+  Every route is checked for horizontal overflow at 360, 390, 768, 1024 and 1280 px wide; the
+  narrowest of those is the one that catches real bugs, such as native date inputs refusing to
+  shrink below their intrinsic width.
 - **Accessibility** — labelled controls, visible focus rings, focus-trapped and escape-closable
   overlays, `aria-sort` on sortable columns, a skip link, and `prefers-reduced-motion` respected.
 
@@ -176,7 +196,7 @@ needing a file server; that becomes Supabase Storage.
 
 ## Known limits of the demo
 
-- Data lives in `localStorage` (about 1.2 MB at the seeded volume). Clearing site data or using a
+- Data lives in `localStorage` under the `aura:` namespace (about 1.2 MB at the seeded volume). Clearing site data or using a
   private window starts you fresh. If the browser refuses the write, the app keeps working in
   memory and logs a warning rather than failing mid-transaction.
 - "Save as PDF" opens the browser's print dialog — the print stylesheet renders the receipt and the

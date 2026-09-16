@@ -189,7 +189,7 @@ export function AppointmentDrawer({
           })}
 
           {appointment.status === 'completed' && !appointment.saleId && (
-            <Button size="sm" variant="gold" leftIcon={<Receipt />} onClick={createBill}>
+            <Button size="sm" variant="accent" leftIcon={<Receipt />} onClick={createBill}>
               Create bill
             </Button>
           )}
@@ -363,8 +363,8 @@ export function AppointmentDrawer({
         </section>
 
         {appointment.status === 'completed' && !appointment.saleId && (
-          <div className="flex items-start gap-2.5 rounded-xl border border-gold/30 bg-gold-soft px-3.5 py-3">
-            <CalendarClock className="mt-px h-4 w-4 shrink-0 text-gold" aria-hidden />
+          <div className="flex items-start gap-2.5 rounded-xl border border-accent/30 bg-accent-soft px-3.5 py-3">
+            <CalendarClock className="mt-px h-4 w-4 shrink-0 text-accent" aria-hidden />
             <p className="text-[13px] leading-snug text-ink">
               This appointment is finished but has not been billed yet.
             </p>

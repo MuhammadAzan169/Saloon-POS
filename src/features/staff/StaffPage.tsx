@@ -208,7 +208,7 @@ export function StaffPage(): JSX.Element {
         }
       />
 
-      <div className="mb-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+      <div className="mb-4 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         <StatCard label="Team members" value={rows.length} icon={<UserSquare2 />} />
         <StatCard label="On duty today" value={onDuty.length} icon={<CalendarDays />} tone="ok" />
         <StatCard

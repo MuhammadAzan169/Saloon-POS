@@ -258,7 +258,7 @@ export const staff: Staff[] = seeds.map((s) => ({
   name: s.name,
   role: s.role,
   phone: s.phone,
-  email: `${s.name.toLowerCase().replace(/\s+/g, '.')}@lumieresalon.pk`,
+  email: `${s.name.toLowerCase().replace(/\s+/g, '.')}@aurabyhs.pk`,
   photoUrl: null,
   specializations: s.specializations,
   schedule: s.schedule,

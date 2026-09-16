@@ -62,7 +62,7 @@ const ONE_OFF: { title: string; category: ExpenseCategory; min: number; max: num
   { title: 'Water & refreshments', category: 'Other', min: 5000, max: 15000, description: 'Tea, coffee and bottled water for clients.' },
 ];
 
-const PAID_BY = ['Amara Sheikh', 'Sana Tariq', 'Hina Raza', 'Rabia Naseem'];
+const PAID_BY = ['Hira', 'Sana Tariq', 'Hina Raza', 'Rabia Naseem'];
 
 /** Six months of history, so period filters and the trend chart have depth. */
 export function buildExpenses(today: Date): Expense[] {
@@ -93,7 +93,7 @@ export function buildExpenses(today: Date): Expense[] {
           amount: Math.round((baseAmount * (1 + drift)) / 100) * 100,
           spentOn: toISODate(spentOn),
           description: item.description,
-          paidBy: PAID_BY[shopIndex + 1] ?? 'Amara Sheikh',
+          paidBy: PAID_BY[shopIndex + 1] ?? 'Hira',
         });
       }
 

@@ -351,13 +351,13 @@ export function AppointmentsPage(): JSX.Element {
             ]}
           />
 
-          <label className="inline-flex items-center gap-1.5 text-xs text-muted">
+          <label className="flex w-full min-w-0 items-center gap-1.5 text-xs text-muted sm:w-auto">
             <span className="sr-only">From date</span>
             <input
               type="date"
               value={fromDate}
               onChange={(e) => setFromDate(e.target.value)}
-              className="h-10 rounded-xl border border-line bg-surface px-2.5 text-sm text-ink"
+              className="h-10 w-full min-w-0 flex-1 rounded-xl border border-line bg-surface px-2.5 text-sm text-ink sm:w-auto sm:flex-none"
               aria-label="From date"
             />
             <span aria-hidden>–</span>
@@ -365,7 +365,7 @@ export function AppointmentsPage(): JSX.Element {
               type="date"
               value={toDate}
               onChange={(e) => setToDate(e.target.value)}
-              className="h-10 rounded-xl border border-line bg-surface px-2.5 text-sm text-ink"
+              className="h-10 w-full min-w-0 flex-1 rounded-xl border border-line bg-surface px-2.5 text-sm text-ink sm:w-auto sm:flex-none"
               aria-label="To date"
             />
           </label>

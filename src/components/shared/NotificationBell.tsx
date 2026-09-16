@@ -84,7 +84,7 @@ export function NotificationBell(): JSX.Element {
           <Bell className="h-[18px] w-[18px]" aria-hidden />
           {unread > 0 && (
             <span
-              className="absolute -right-0.5 -top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-danger px-1 text-[10px] font-semibold text-white tabular-nums"
+              className="absolute -right-0.5 -top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-danger px-1 text-[10px] font-semibold text-danger-ink tabular-nums"
               aria-hidden
             >
               {unread > 99 ? '99+' : unread}

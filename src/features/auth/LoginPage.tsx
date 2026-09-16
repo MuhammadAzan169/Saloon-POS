@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { AlertCircle, ArrowRight, Lock, Mail, Scissors, Store, UserCircle2 } from 'lucide-react';
+import { AlertCircle, ArrowRight, Lock, Mail, Store, UserCircle2 } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
 import { DEMO_ACCOUNTS } from '@/mock/shops';
 import { homeFor } from '@/app/navigation';
@@ -62,33 +62,51 @@ export function LoginPage(): JSX.Element {
   return (
     <div className="grid min-h-screen lg:grid-cols-[1.05fr_1fr]">
       {/* ---------- Brand panel ---------- */}
-      <section className="relative hidden flex-col justify-between overflow-hidden bg-brand p-10 text-brand-ink lg:flex">
-        <div
+      {/*
+        The poster carries its own wordmark and tagline baked in at a fixed
+        position, so using it as a foreground image made the headline collide
+        with that tagline at some window sizes. It is therefore ambience —
+        blurred and scrimmed — while the identity is redrawn live from the ring
+        mark plus real type, which stays sharp and reflows at any size.
+      */}
+      <section className="relative hidden flex-col justify-between overflow-hidden bg-brand-panel p-10 text-white lg:flex xl:p-12">
+        <img
+          src="/aura-brand.jpg"
+          alt=""
           aria-hidden
-          className="pointer-events-none absolute -right-24 -top-24 h-[28rem] w-[28rem] rounded-full bg-gold/15 blur-3xl"
+          className="absolute inset-0 h-full w-full scale-110 object-cover blur-[11px]"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-32 -left-20 h-[24rem] w-[24rem] rounded-full bg-white/5 blur-3xl"
+          className="absolute inset-0 bg-gradient-to-br from-brand-panel/55 via-brand-panel/70 to-brand-panel/90"
         />
 
-        <div className="relative flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-ink/10 backdrop-blur">
-            <Scissors className="h-4 w-4" aria-hidden />
+        <div className="relative flex items-center gap-3">
+          <img
+            src="/aura-mark.jpg"
+            alt=""
+            width={48}
+            height={48}
+            className="h-12 w-12 rounded-2xl object-cover ring-1 ring-accent-bright/40"
+          />
+          <span>
+            <span className="block font-display text-lg font-semibold leading-tight">Aura by HS</span>
+            <span className="block text-[11px] uppercase tracking-[0.14em] text-accent-bright/80">
+              Bridal · Salon · Photography
+            </span>
           </span>
-          <span className="font-display text-lg font-semibold">Lumière Salon Suite</span>
         </div>
 
         <div className="relative max-w-md">
-          <h1 className="font-display text-[2.6rem] font-semibold leading-[1.1]">
+          <h1 className="font-display text-[2.5rem] font-semibold leading-[1.1]">
             Every chair, every till, every branch.
           </h1>
-          <p className="mt-4 text-[15px] leading-relaxed text-brand-ink/75">
+          <p className="mt-4 text-[15px] leading-relaxed text-white/75">
             Bookings that respect your stylists' rotas, a point of sale built for a busy Saturday,
             and numbers you can actually act on — across all three salons.
           </p>
 
-          <dl className="mt-10 grid grid-cols-3 gap-6">
+          <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-white/15 pt-6">
             {[
               { value: '3', label: 'Branches' },
               { value: '16', label: 'Stylists' },
@@ -97,8 +115,10 @@ export function LoginPage(): JSX.Element {
               <div key={stat.label}>
                 <dt className="sr-only">{stat.label}</dt>
                 <dd>
-                  <span className="block font-display text-2xl font-semibold">{stat.value}</span>
-                  <span className="mt-0.5 block text-xs uppercase tracking-wide text-brand-ink/60">
+                  <span className="block font-display text-2xl font-semibold text-accent-bright">
+                    {stat.value}
+                  </span>
+                  <span className="mt-0.5 block text-xs uppercase tracking-wide text-white/55">
                     {stat.label}
                   </span>
                 </dd>
@@ -107,7 +127,7 @@ export function LoginPage(): JSX.Element {
           </dl>
         </div>
 
-        <p className="relative text-xs text-brand-ink/50">
+        <p className="relative text-xs text-white/45">
           Demo build — all data is generated and stored in your browser.
         </p>
       </section>
@@ -116,10 +136,17 @@ export function LoginPage(): JSX.Element {
       <section className="flex items-center justify-center bg-canvas px-5 py-10 sm:px-8">
         <div className="w-full max-w-sm">
           <div className="mb-8 lg:hidden">
-            <span className="mb-4 grid h-11 w-11 place-items-center rounded-2xl bg-brand text-brand-ink">
-              <Scissors className="h-5 w-5" aria-hidden />
-            </span>
-            <p className="font-display text-xl font-semibold text-ink">Lumière Salon Suite</p>
+            <img
+              src="/aura-mark.jpg"
+              alt=""
+              width={52}
+              height={52}
+              className="mb-4 h-[52px] w-[52px] rounded-2xl object-cover shadow-card ring-1 ring-accent/30"
+            />
+            <p className="font-display text-xl font-semibold text-ink">Aura by HS</p>
+            <p className="mt-0.5 text-xs text-subtle">
+              Bridal make-up · Saloon services · Photography studio
+            </p>
           </div>
 
           <h2 className="font-display text-2xl font-semibold text-ink">Welcome back</h2>
@@ -140,7 +167,7 @@ export function LoginPage(): JSX.Element {
               label="Email address"
               type="email"
               autoComplete="username"
-              placeholder="you@lumieresalon.pk"
+              placeholder="you@aurabyhs.pk"
               leftIcon={<Mail />}
               error={errors.email?.message}
               {...register('email')}
@@ -205,7 +232,7 @@ export function LoginPage(): JSX.Element {
 
             <p className="pt-1 text-[11px] leading-snug text-subtle">
               The other branches sign in with <span className="font-mono">dha@</span> or{' '}
-              <span className="font-mono">clifton@lumieresalon.pk</span>, same password.
+              <span className="font-mono">clifton@aurabyhs.pk</span>, same password.
             </p>
           </dl>
         </div>

@@ -29,10 +29,12 @@ import { EmptyState } from './States';
 /** Categorical palette — distinguishable, and ordered by prominence. */
 export const CHART_COLORS = [
   'rgb(var(--c-brand))',
-  'rgb(var(--c-gold))',
+  'rgb(var(--c-accent))',
   'rgb(var(--c-info))',
   'rgb(var(--c-ok))',
   'rgb(var(--c-warn))',
+  // Red sits last: it is the closest hue to the maroon brand, so it only
+  // appears once a chart already has five other series to tell apart.
   'rgb(var(--c-danger))',
 ];
 
@@ -116,15 +118,18 @@ export function ChartFrame({
 }: ChartFrameProps): JSX.Element {
   if (isEmpty) {
     return (
-      <div className={cn('grid place-items-center', className)} style={{ height }}>
+      <div className={cn('grid min-w-0 place-items-center', className)} style={{ height }}>
         <EmptyState compact title={emptyMessage} />
       </div>
     );
   }
 
   return (
-    <div className={className} style={{ height }}>
-      <ResponsiveContainer width="100%" height="100%">
+    // `min-w-0` is load-bearing: as a grid/flex child this div defaults to
+    // `min-width: auto`, so the axis labels inside Recharts would set a floor
+    // and push the whole card past a narrow viewport.
+    <div className={cn('min-w-0', className)} style={{ height }}>
+      <ResponsiveContainer width="100%" height="100%" minWidth={0}>
         {children as React.ReactElement}
       </ResponsiveContainer>
     </div>

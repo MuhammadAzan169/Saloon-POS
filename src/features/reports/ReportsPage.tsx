@@ -245,7 +245,7 @@ export function ReportsPage(): JSX.Element {
         {/* ---------------- Financial ---------------- */}
         <TabPanel active={tab === 'financial'}>
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
               <StatCard
                 label="Revenue"
                 value={formatCurrency(data.financial.revenue)}
@@ -442,7 +442,7 @@ export function ReportsPage(): JSX.Element {
         {/* ---------------- Customers ---------------- */}
         <TabPanel active={tab === 'customers'}>
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
               <StatCard label="New customers" value={data.kpi.newCustomers} />
               <StatCard label="Returning" value={data.kpi.returningCustomers} />
               <StatCard

@@ -238,7 +238,7 @@ export function BillsPage(): JSX.Element {
         }
       />
 
-      <div className="mb-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+      <div className="mb-4 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         <StatCard label="Bills" value={summary.count} icon={<Receipt />} />
         <StatCard label="Revenue" value={formatCurrency(summary.revenue, { compact: true })} />
         <StatCard label="Average bill" value={formatCurrency(summary.average)} />
@@ -292,14 +292,14 @@ export function BillsPage(): JSX.Element {
             ]}
           />
 
-          <label className="inline-flex items-center gap-1.5">
+          <label className="flex w-full min-w-0 items-center gap-1.5 sm:w-auto">
             <span className="sr-only">From date</span>
             <input
               type="date"
               value={fromDate}
               onChange={(e) => setFromDate(e.target.value)}
               aria-label="From date"
-              className="h-10 rounded-xl border border-line bg-surface px-2.5 text-sm text-ink"
+              className="h-10 w-full min-w-0 flex-1 rounded-xl border border-line bg-surface px-2.5 text-sm text-ink sm:w-auto sm:flex-none"
             />
             <span aria-hidden className="text-subtle">–</span>
             <input
@@ -307,7 +307,7 @@ export function BillsPage(): JSX.Element {
               value={toDate}
               onChange={(e) => setToDate(e.target.value)}
               aria-label="To date"
-              className="h-10 rounded-xl border border-line bg-surface px-2.5 text-sm text-ink"
+              className="h-10 w-full min-w-0 flex-1 rounded-xl border border-line bg-surface px-2.5 text-sm text-ink sm:w-auto sm:flex-none"
             />
           </label>
         </FilterBar>

@@ -40,7 +40,7 @@ const guardedLocalStorage: Storage = {
       if (!quotaWarningShown) {
         quotaWarningShown = true;
         console.warn(
-          '[Lumière] Could not save to localStorage — the browser refused the write ' +
+          '[Aura] Could not save to localStorage — the browser refused the write ' +
             '(storage full, or site data blocked). The app still works, but changes ' +
             'will not survive a refresh.',
         );

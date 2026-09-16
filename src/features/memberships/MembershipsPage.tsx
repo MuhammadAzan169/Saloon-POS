@@ -91,7 +91,7 @@ export function MembershipsPage(): JSX.Element {
         }
       />
 
-      <div className="mb-5 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+      <div className="mb-5 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         <StatCard label="Tiers offered" value={db.memberships.filter((m) => m.active).length} icon={<BadgePercent />} />
         <StatCard label="Active members" value={summary.activeCount} icon={<Users />} />
         <StatCard

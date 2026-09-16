@@ -71,7 +71,7 @@ export function ShopsPage(): JSX.Element {
         }
       />
 
-      <div className="mb-5 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+      <div className="mb-5 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         <StatCard label="Branches" value={totals.shops} icon={<Store />} hint={`${totals.active} active`} />
         <StatCard label="Revenue today" value={formatCurrency(totals.todayRevenue, { compact: true })} />
         <StatCard label="Team members" value={totals.staff} icon={<Users />} />

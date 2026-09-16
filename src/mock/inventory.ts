@@ -74,7 +74,7 @@ export function buildInventoryMovements(
         quantity: -rng.int(1, 3),
         reason: rng.pick(ADJUSTMENT_REASONS),
         referenceId: null,
-        userName: 'Amara Sheikh',
+        userName: 'Hira',
       });
     }
 
@@ -103,7 +103,7 @@ export function buildInventoryMovements(
       reason: `Opening stock received from ${product.supplier}`,
       referenceId: null,
       userId: 'usr_0001',
-      userName: 'Amara Sheikh',
+      userName: 'Hira',
     });
 
     for (const event of events) {

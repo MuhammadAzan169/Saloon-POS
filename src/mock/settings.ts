@@ -2,11 +2,11 @@ import type { Settings } from '@/types';
 
 export const defaultSettings: Settings = {
   business: {
-    name: 'Lumière Salon & Spa',
-    tagline: 'Considered beauty, three addresses',
-    logoUrl: null,
+    name: 'Aura by HS',
+    tagline: 'Bridal · Salon · Photography',
+    logoUrl: '/aura-mark.jpg',
     phone: '042 3577 1420',
-    email: 'hello@lumieresalon.pk',
+    email: 'hello@aurabyhs.pk',
     addressLine: '14-C, MM Alam Road, Gulberg III',
     city: 'Lahore',
   },
@@ -22,7 +22,7 @@ export const defaultSettings: Settings = {
     currencyCode: 'PKR',
     locale: 'en-PK',
     taxRatePct: 5,
-    receiptHeader: 'Lumière Salon & Spa',
+    receiptHeader: 'Aura by HS',
     receiptFooter: 'Prices include all applicable taxes. No refunds on completed services.',
     maxShopDiscountPct: 15,
   },

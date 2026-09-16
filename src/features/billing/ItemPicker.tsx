@@ -283,7 +283,7 @@ function PackageTile({
     <button
       type="button"
       onClick={onPick}
-      className={cn(TILE_BASE, 'border-gold/40 bg-gold-soft/60 hover:border-gold hover:bg-gold-soft')}
+      className={cn(TILE_BASE, 'border-accent/40 bg-accent-soft/60 hover:border-accent hover:bg-accent-soft')}
     >
       <CountBadge count={count} />
 

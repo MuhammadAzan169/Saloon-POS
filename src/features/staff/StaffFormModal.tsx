@@ -179,7 +179,7 @@ export function StaffFormModal({
               <Input
                 label="Email"
                 type="email"
-                placeholder="name@lumieresalon.pk"
+                placeholder="name@aurabyhs.pk"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />

@@ -136,7 +136,7 @@ export function PackagesPage(): JSX.Element {
                   </div>
 
                   <span
-                    className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gold-soft text-gold"
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent"
                     aria-hidden
                   >
                     <Gift className="h-[18px] w-[18px]" />

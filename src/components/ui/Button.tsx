@@ -2,7 +2,7 @@ import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { Loader2 } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'outline' | 'gold';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'outline' | 'accent';
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
 
 const VARIANTS: Record<ButtonVariant, string> = {
@@ -13,8 +13,8 @@ const VARIANTS: Record<ButtonVariant, string> = {
   outline:
     'border border-line bg-surface text-ink hover:bg-canvas active:bg-line/40 disabled:hover:bg-surface',
   ghost: 'text-muted hover:bg-line/50 hover:text-ink active:bg-line/70',
-  danger: 'bg-danger text-white hover:brightness-95 active:brightness-90 shadow-sm',
-  gold: 'bg-gold text-white hover:brightness-95 active:brightness-90 shadow-sm',
+  danger: 'bg-danger text-danger-ink hover:brightness-95 active:brightness-90 shadow-sm',
+  accent: 'bg-accent text-accent-ink hover:brightness-95 active:brightness-90 shadow-sm',
 };
 
 const SIZES: Record<ButtonSize, string> = {

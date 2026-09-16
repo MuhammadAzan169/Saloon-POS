@@ -66,7 +66,12 @@ export function StatCard({
         )}
       </div>
 
-      <p className="mt-2 font-display text-[26px] leading-none font-semibold text-ink tabular-nums">
+      {/*
+        Never `truncate` or `break-words` here: this is a money figure, and both
+        would hide or split digits. The KPI grid goes one-up below 420px so the
+        longest realistic total fits on a single line instead.
+      */}
+      <p className="mt-2 min-w-0 font-display text-[22px] font-semibold leading-none text-ink tabular-nums sm:text-[26px]">
         {value}
       </p>
 
@@ -96,7 +101,9 @@ export function StatCard({
   );
 
   const classes = cn(
-    'card p-4 transition-shadow',
+    // Grid items default to `min-width: auto`, which lets a long value widen
+    // the whole track and push the page sideways.
+    'card min-w-0 p-4 transition-shadow',
     TONE_RING[tone],
     to && 'hover:shadow-lift cursor-pointer',
     className,

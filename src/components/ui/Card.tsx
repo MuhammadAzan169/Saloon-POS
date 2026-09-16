@@ -31,7 +31,10 @@ export function CardHeader({
   return (
     <div
       className={cn(
-        'flex items-start justify-between gap-4',
+        // Wrapping matters: the action slot is `shrink-0`, so on a phone a wide
+        // action (a four-item tab group, say) would otherwise force the whole
+        // card wider than the viewport instead of dropping to its own line.
+        'flex flex-wrap items-start justify-between gap-x-4 gap-y-3',
         divided && 'border-b border-line pb-4',
         className,
       )}

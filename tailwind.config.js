@@ -15,16 +15,24 @@ export default {
         brand: {
           DEFAULT: 'rgb(var(--c-brand) / <alpha-value>)',
           soft: 'rgb(var(--c-brand-soft) / <alpha-value>)',
+          /* Fixed dark maroon for the photographic brand panel; never inverts. */
+          panel: 'rgb(var(--c-brand-panel) / <alpha-value>)',
           strong: 'rgb(var(--c-brand-strong) / <alpha-value>)',
           ink: 'rgb(var(--c-brand-ink) / <alpha-value>)',
         },
-        gold: {
-          DEFAULT: 'rgb(var(--c-gold) / <alpha-value>)',
-          soft: 'rgb(var(--c-gold-soft) / <alpha-value>)',
+        accent: {
+          DEFAULT: 'rgb(var(--c-accent) / <alpha-value>)',
+          soft: 'rgb(var(--c-accent-soft) / <alpha-value>)',
+          ink: 'rgb(var(--c-accent-ink) / <alpha-value>)',
+          bright: 'rgb(var(--c-accent-bright) / <alpha-value>)',
         },
         ok: { DEFAULT: 'rgb(var(--c-ok) / <alpha-value>)', soft: 'rgb(var(--c-ok-soft) / <alpha-value>)' },
         warn: { DEFAULT: 'rgb(var(--c-warn) / <alpha-value>)', soft: 'rgb(var(--c-warn-soft) / <alpha-value>)' },
-        danger: { DEFAULT: 'rgb(var(--c-danger) / <alpha-value>)', soft: 'rgb(var(--c-danger-soft) / <alpha-value>)' },
+        danger: {
+          DEFAULT: 'rgb(var(--c-danger) / <alpha-value>)',
+          soft: 'rgb(var(--c-danger-soft) / <alpha-value>)',
+          ink: 'rgb(var(--c-danger-ink) / <alpha-value>)',
+        },
         info: { DEFAULT: 'rgb(var(--c-info) / <alpha-value>)', soft: 'rgb(var(--c-info-soft) / <alpha-value>)' },
       },
       fontFamily: {
@@ -33,9 +41,9 @@ export default {
       },
       borderRadius: { xl: '0.875rem', '2xl': '1.125rem' },
       boxShadow: {
-        card: '0 1px 2px rgb(24 16 22 / 0.04), 0 1px 3px rgb(24 16 22 / 0.06)',
-        lift: '0 4px 12px rgb(24 16 22 / 0.08), 0 1px 3px rgb(24 16 22 / 0.06)',
-        pop: '0 12px 32px rgb(24 16 22 / 0.14), 0 2px 8px rgb(24 16 22 / 0.08)',
+        card: '0 1px 2px rgb(46 12 14 / 0.05), 0 1px 3px rgb(46 12 14 / 0.07)',
+        lift: '0 4px 12px rgb(46 12 14 / 0.09), 0 1px 3px rgb(46 12 14 / 0.06)',
+        pop: '0 12px 32px rgb(46 12 14 / 0.16), 0 2px 8px rgb(46 12 14 / 0.09)',
       },
       keyframes: {
         'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },

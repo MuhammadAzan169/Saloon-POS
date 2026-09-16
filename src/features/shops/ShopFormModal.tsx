@@ -158,7 +158,7 @@ export function ShopFormModal({ open, onClose, shop }: ShopFormModalProps): JSX.
               <Input
                 label="Branch name"
                 required
-                placeholder="Lumière Gulberg"
+                placeholder="Aura Gulberg"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -204,7 +204,7 @@ export function ShopFormModal({ open, onClose, shop }: ShopFormModalProps): JSX.
               <Input
                 label="Branch email"
                 type="email"
-                placeholder="gulberg@lumieresalon.pk"
+                placeholder="gulberg@aurabyhs.pk"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -255,7 +255,7 @@ export function ShopFormModal({ open, onClose, shop }: ShopFormModalProps): JSX.
                 label="Login email"
                 required
                 type="email"
-                placeholder="gulberg@lumieresalon.pk"
+                placeholder="gulberg@aurabyhs.pk"
                 value={accountEmail}
                 onChange={(e) => setAccountEmail(e.target.value)}
               />

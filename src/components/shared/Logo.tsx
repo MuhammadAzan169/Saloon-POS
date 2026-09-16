@@ -13,21 +13,31 @@ export function Logo({ className, markOnly, size = 'md' }: LogoProps): JSX.Eleme
   const settings = useTable('settings');
   const { name, tagline, logoUrl } = settings.business;
 
+  const box = size === 'sm' ? 'h-8 w-8' : 'h-9 w-9';
+
   const mark = logoUrl ? (
     <img
       src={logoUrl}
       alt=""
-      className={cn('shrink-0 rounded-xl object-cover', size === 'sm' ? 'h-8 w-8' : 'h-9 w-9')}
+      width={36}
+      height={36}
+      className={cn(
+        // The mark is gold on near-black maroon, so it needs a hairline to
+        // separate it from a white card and a glow to lift it in dark mode.
+        'shrink-0 rounded-xl object-cover ring-1 ring-accent/30 shadow-sm',
+        box,
+      )}
     />
   ) : (
     <span
       aria-hidden
       className={cn(
         'grid shrink-0 place-items-center rounded-xl bg-brand font-display font-semibold text-brand-ink',
-        size === 'sm' ? 'h-8 w-8 text-sm' : 'h-9 w-9 text-base',
+        box,
+        size === 'sm' ? 'text-sm' : 'text-base',
       )}
     >
-      {name.trim().charAt(0) || 'L'}
+      {name.trim().charAt(0) || 'A'}
     </span>
   );
 

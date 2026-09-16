@@ -17,7 +17,7 @@ const TINTS = [
   'bg-info-soft text-info',
   'bg-ok-soft text-ok',
   'bg-warn-soft text-warn',
-  'bg-gold-soft text-gold',
+  'bg-accent-soft text-accent',
   'bg-danger-soft text-danger',
 ];
 

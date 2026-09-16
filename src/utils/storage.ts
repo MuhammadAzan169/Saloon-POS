@@ -3,7 +3,7 @@
  * private windows or when site data is blocked, so nothing may assume success.
  */
 
-const NAMESPACE = 'lumiere';
+const NAMESPACE = 'aura';
 
 export function storageKey(key: string): string {
   return `${NAMESPACE}:${key}`;

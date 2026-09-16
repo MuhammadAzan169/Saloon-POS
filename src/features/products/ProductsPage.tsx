@@ -245,7 +245,7 @@ export function ProductsPage(): JSX.Element {
         }
       />
 
-      <div className="mb-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+      <div className="mb-4 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         <StatCard label="Products" value={summary.total} icon={<Package />} hint={`${summary.retail} sold at the till`} />
         <StatCard label="Stock at cost" value={formatCurrency(summary.valueAtCost, { compact: true })} />
         <StatCard label="Stock at retail" value={formatCurrency(summary.valueAtRetail, { compact: true })} />
