@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neutrals — warm, slightly mauve-tinted greys */
+    --c-canvas: 249 247 248;
+    --c-surface: 255 255 255;
+    --c-elevated: 255 255 255;
+    --c-line: 233 228 231;
+    --c-ink: 28 22 27;
+    --c-muted: 106 96 104;
+    --c-subtle: 146 136 144;
+
+    /* Brand — aubergine */
+    --c-brand: 74 37 69;
+    --c-brand-strong: 56 26 52;
+    --c-brand-soft: 243 236 242;
+    --c-brand-ink: 255 255 255;
+
+    /* Accent — antique gold */
+    --c-gold: 168 134 46;
+    --c-gold-soft: 250 244 227;
+
+    --c-ok: 22 118 90;
+    --c-ok-soft: 226 244 238;
+    --c-warn: 176 106 12;
+    --c-warn-soft: 253 241 224;
+    --c-danger: 186 44 55;
+    --c-danger-soft: 253 233 234;
+    --c-info: 42 92 168;
+    --c-info-soft: 231 240 252;
+
+    --ring: 74 37 69;
+    color-scheme: light;
+  }
+
+  [data-theme='dark'] {
+    --c-canvas: 20 16 20;
+    --c-surface: 28 23 28;
+    --c-elevated: 36 30 36;
+    --c-line: 54 46 54;
+    --c-ink: 244 241 244;
+    --c-muted: 168 158 168;
+    --c-subtle: 130 120 130;
+
+    --c-brand: 216 180 90;
+    --c-brand-strong: 231 200 122;
+    --c-brand-soft: 48 40 30;
+    --c-brand-ink: 28 22 20;
+
+    --c-gold: 216 180 90;
+    --c-gold-soft: 48 40 30;
+
+    --c-ok: 74 190 152;
+    --c-ok-soft: 20 48 41;
+    --c-warn: 227 163 72;
+    --c-warn-soft: 54 40 22;
+    --c-danger: 240 118 126;
+    --c-danger-soft: 58 26 30;
+    --c-info: 122 168 240;
+    --c-info-soft: 24 36 58;
+
+    --ring: 216 180 90;
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: rgb(var(--c-line));
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv11';
+  }
+
+  h1, h2, h3 {
+    @apply font-display tracking-[-0.01em];
+  }
+
+  /* Visible, consistent focus for keyboard users */
+  :focus-visible {
+    outline: 2px solid rgb(var(--ring));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--c-line));
+    border-radius: 99px;
+    border: 3px solid rgb(var(--c-canvas));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--c-subtle) / 0.6); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-line rounded-2xl shadow-card;
+  }
+  .hairline {
+    @apply border-b border-line;
+  }
+  .skeleton {
+    @apply relative overflow-hidden bg-line/60 rounded-md;
+  }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgb(var(--c-surface) / 0.65), transparent);
+    animation: shimmer 1.4s infinite;
+    transform: translateX(-100%);
+  }
+  @keyframes shimmer { 100% { transform: translateX(100%); } }
+
+  /* Hide scrollbar but keep scrolling (filter chip rows) */
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+/* ---------- Print: receipts ---------- */
+@media print {
+  @page { margin: 10mm; size: auto; }
+  body { background: #fff !important; }
+  .no-print, .no-print * { display: none !important; }
+  .print-area {
+    position: absolute !important;
+    inset: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .print-area * { color: #000 !important; }
+}
